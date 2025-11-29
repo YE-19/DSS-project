@@ -159,7 +159,7 @@ Calculating the **Minimax Regret matrix** is nearly impossible without NumPy's a
 
 ---
 
-## 2. Setup: Installing the Library
+## 7. Setup: Installing the Library
 
 Before running the project, every team member must install **NumPy** into their Python environment.
 
@@ -171,7 +171,7 @@ pip install numpy
 
 ---
 
-## 3. 🎯 How to Use NumPy in Each Decision Model
+## 8. 🎯 How to Use NumPy in Each Decision Model
 
 The `__init__` method already converts the user's input matrix into a **NumPy array** stored as `self.matrix`.
 
