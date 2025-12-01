@@ -60,15 +60,14 @@ class DecisionMaker:
         # ----------------------------------------------------------------------
         return "Not Implemented Yet: Maximin Logic"
 
+
     def hurwicz_approach(self, alpha=0.5):
-        # ----------------------------------------------------------------------
-        # TO BE IMPLEMENTED BY TEAM MEMBERS (Hurwicz / Criterion of Realism)
-        # This method should:
-        # 1. Calculate Value = (alpha * Max Payoff) + ((1 - alpha) * Min Payoff) for each row.
-        # 2. Select the alternative with the highest calculated Value.
-        # 3. The 'alpha' parameter is passed when called from the interactive mode.
-        # ----------------------------------------------------------------------
-        return f"Not Implemented Yet: Hurwicz Logic (alpha={alpha})"
+        max_values = np.max(self.matrix, axis=1)
+        min_values = np.min(self.matrix, axis=1)
+        hurwicz_scores = alpha * max_values + (1 - alpha) * min_values
+        best_index = np.argmax(hurwicz_scores)
+        return self.alternatives[best_index]
+
 
     def regret_approach(self):
         # ----------------------------------------------------------------------
@@ -81,14 +80,9 @@ class DecisionMaker:
         return "Not Implemented Yet: Minimax Regret Logic"
 
     def laplace_approach(self):
-        # ----------------------------------------------------------------------
-        # TO BE IMPLEMENTED BY TEAM MEMBERS (Laplace / Equal Likelihood Criterion)
-        # This method should:
-        # 1. Calculate the average payoff (mean) for each alternative (row).
-        # 2. Select the alternative that yields the highest average payoff.
-        # 3. Use self.matrix and np.mean(..., axis=1).
-        # ----------------------------------------------------------------------
-        return "Not Implemented Yet: Laplace Logic"
+        means = np.mean(self.matrix, axis=1)
+        best_index = np.argmax(means)
+        return self.alternatives[best_index]
     
     # ----------------------------------------------------
     # 3. Output Method
